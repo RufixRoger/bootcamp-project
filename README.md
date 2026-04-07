@@ -12,3 +12,5 @@ Aplicación de gestión de tareas creada como proyecto de prácticas.
 - HTML
 - CSS
 - JavaScript
+
+Proyecto creado como parte del bootcamp de desarrollo.
