@@ -1,31 +1,25 @@
 # TaskFlow
 
-Aplicación de gestión de tareas creada como proyecto de prácticas.
+Aplicación de gestión de tareas desarrollada como proyecto de prácticas.
 
 ## Funcionalidades
 - Crear tareas
-- Marcar tareas como completadas
+- Marcar como completadas
 - Eliminar tareas
-- Filtrar tareas
+- Filtros (todas, pendientes, completadas)
+- Búsqueda
+- Persistencia con LocalStorage
 
 ## Tecnologías
 - HTML
 - CSS
 - JavaScript
 
-Proyecto creado como parte del bootcamp de desarrollo.
-
-## Diseño de la aplicación
-
-TaskFlow tendrá una cabecera con el título de la app, un formulario para añadir tareas, una lista principal de tareas y un panel de estadísticas con el total, completadas y pendientes. También incluirá filtros, búsqueda y acciones extra como marcar todas o borrar completadas.
+## Demo
+https://bootcamp-project-liart.vercel.app
 
 ## Testing
-
-Se han realizado pruebas manuales de la aplicación:
-
-- Se comprobó que no permite añadir tareas vacías
-- Se verificó el correcto funcionamiento de añadir, completar y eliminar tareas
-- Se comprobó la persistencia de datos tras recargar la página
-- Se probaron los filtros y búsqueda de tareas
-
-La aplicación funciona correctamente en todos los casos probados.
+- Se comprobó que no permite tareas vacías
+- Funciona añadir, eliminar y completar
+- Los datos persisten al recargar
+- Filtros y búsqueda funcionan correctamente
