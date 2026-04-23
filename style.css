@@ -1,0 +1,162 @@
+:root {
+  --primary: #4f46e5;
+  --background: #f9fafb;
+  --text: #111827;
+  --border: #e5e7eb;
+  --radius: 8px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  padding: 20px;
+}
+
+/* Header */
+header {
+  margin-bottom: 20px;
+}
+
+/* Layout */
+main {
+  display: flex;
+  gap: 20px;
+}
+
+/* Secciones */
+section {
+  flex: 2;
+}
+
+aside {
+  flex: 1;
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: var(--radius);
+  background: white;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+/* Buscador */
+.search-box {
+  margin-bottom: 15px;
+}
+
+.search-box input {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* Acciones */
+.task-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+/* Lista */
+ul {
+  list-style: none;
+}
+
+/* Tarea */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  background: white;
+}
+
+/* Texto tarea */
+li span {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Botones de cada tarea */
+.task-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Estado completado */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
