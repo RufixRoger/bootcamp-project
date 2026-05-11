@@ -38,3 +38,18 @@ Ejemplo:
 
 ```js
 // function to sort tasks by priority
+
+# Uso de MCP en Cursor
+
+## ¿Qué es MCP?
+
+MCP significa Model Context Protocol. Es un protocolo que permite que herramientas de IA como Cursor puedan conectarse a recursos externos, como archivos del proyecto, repositorios de GitHub, bases de datos o servicios externos.
+
+## Configuración realizada
+
+Se creó una carpeta `.cursor` dentro del proyecto y dentro de ella un archivo `mcp.json`.
+
+La estructura creada fue:
+
+```text
+.cursor/mcp.json
