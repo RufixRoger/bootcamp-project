@@ -1,11 +1,5 @@
 # Comparativa entre asistentes de IA
 
-En este documento se comparará el uso de diferentes asistentes de inteligencia artificial, como ChatGPT y Claude, para explicar conceptos técnicos, detectar errores en código y generar funciones en JavaScript.
-
-Se documentarán los prompts utilizados, las respuestas obtenidas y las conclusiones sobre la claridad, calidad y utilidad de cada asistente.
-
-# Comparativa entre asistentes de IA
-
 En este documento se comparan ChatGPT y Claude en tareas de explicación de conceptos, detección de errores y generación de código.
 
 ---

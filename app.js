@@ -29,6 +29,16 @@ taskForm.addEventListener("submit", function (event) {
     return;
   }
 
+  if (taskTitle.length < 3) {
+    alert("La tarea debe tener al menos 3 caracteres");
+    return;
+  }
+
+  if (taskTitle.length > 100) {
+    alert("La tarea no puede superar los 100 caracteres");
+    return;
+  }
+
   const newTask = {
     id: Date.now(),
     title: taskTitle,
@@ -46,6 +56,9 @@ taskForm.addEventListener("submit", function (event) {
   priorityInput.value = "medium";
 });
 
+/**
+ * Renderiza todas las tareas según el filtro y la búsqueda actual.
+ */
 function renderTasks() {
   taskList.innerHTML = "";
 
@@ -74,14 +87,23 @@ function renderTasks() {
   });
 }
 
+/**
+ * Renderiza una tarea individual dentro de la lista.
+ * @param {Object} task - Objeto que representa una tarea.
+ * @param {number} task.id - Identificador único de la tarea.
+ * @param {string} task.title - Título de la tarea.
+ * @param {string} task.priority - Prioridad de la tarea.
+ * @param {boolean} task.completed - Estado de la tarea.
+ * @param {string} task.createdAt - Fecha de creación.
+ */
 function renderTask(task) {
-  const li = document.createElement("li");
+  const taskItem = document.createElement("li");
 
-  const span = document.createElement("span");
-  span.textContent = task.title;
+  const taskText = document.createElement("span");
+  taskText.textContent = task.title;
 
   if (task.completed) {
-    span.classList.add("completed");
+    taskText.classList.add("completed");
   }
 
   const priorityBadge = document.createElement("strong");
@@ -109,7 +131,7 @@ function renderTask(task) {
   deleteBtn.type = "button";
   deleteBtn.setAttribute("aria-label", "Eliminar tarea");
 
-  span.addEventListener("click", function () {
+  taskText.addEventListener("click", function () {
     task.completed = !task.completed;
     saveTasks();
     renderTasks();
@@ -130,14 +152,24 @@ function renderTask(task) {
       return;
     }
 
+    if (cleanTitle.length < 3) {
+      alert("La tarea debe tener al menos 3 caracteres");
+      return;
+    }
+
+    if (cleanTitle.length > 100) {
+      alert("La tarea no puede superar los 100 caracteres");
+      return;
+    }
+
     task.title = cleanTitle;
     saveTasks();
     renderTasks();
   });
 
   deleteBtn.addEventListener("click", function () {
-    tasks = tasks.filter(function (t) {
-      return t.id !== task.id;
+    tasks = tasks.filter(function (savedTask) {
+      return savedTask.id !== task.id;
     });
 
     saveTasks();
@@ -148,13 +180,16 @@ function renderTask(task) {
   actions.appendChild(editBtn);
   actions.appendChild(deleteBtn);
 
-  li.appendChild(span);
-  li.appendChild(priorityBadge);
-  li.appendChild(actions);
+  taskItem.appendChild(taskText);
+  taskItem.appendChild(priorityBadge);
+  taskItem.appendChild(actions);
 
-  taskList.appendChild(li);
+  taskList.appendChild(taskItem);
 }
 
+/**
+ * Actualiza las estadísticas de tareas.
+ */
 function updateStats() {
   const total = tasks.length;
   const completed = tasks.filter(function (task) {
@@ -168,10 +203,16 @@ function updateStats() {
   pendingTasks.textContent = pending;
 }
 
+/**
+ * Guarda las tareas en LocalStorage.
+ */
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+/**
+ * Carga las tareas guardadas desde LocalStorage.
+ */
 function loadTasks() {
   const savedTasks = localStorage.getItem("tasks");
 
