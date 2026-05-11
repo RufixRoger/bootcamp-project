@@ -45,7 +45,6 @@ header h1 {
 
 header p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1rem;
 }
 
 main {
@@ -82,7 +81,6 @@ aside h2 {
 aside p {
   margin-bottom: 10px;
   color: var(--text-light);
-  font-size: 1rem;
 }
 
 aside span {
@@ -104,10 +102,10 @@ form label,
   width: 100%;
   margin-bottom: 6px;
   font-weight: bold;
-  color: var(--text);
 }
 
-input {
+input,
+select {
   flex: 1;
   padding: 13px 14px;
   border: 1px solid var(--border);
@@ -118,7 +116,8 @@ input {
   transition: 0.2s ease;
 }
 
-input:focus {
+input:focus,
+select:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
 }
@@ -226,6 +225,29 @@ li span {
   opacity: 0.6;
 }
 
+.priority {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.priority.low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.priority.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.priority.high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
 footer {
   max-width: 1100px;
   margin: 24px auto 0;
@@ -261,7 +283,8 @@ footer {
     align-items: stretch;
   }
 
-  button {
+  button,
+  select {
     width: 100%;
   }
 

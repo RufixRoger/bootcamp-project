@@ -4,6 +4,7 @@ let currentSearch = "";
 
 const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
+const priorityInput = document.getElementById("priority-input");
 const taskList = document.getElementById("task-list");
 
 const totalTasks = document.getElementById("total-tasks");
@@ -31,6 +32,7 @@ taskForm.addEventListener("submit", function (event) {
   const newTask = {
     id: Date.now(),
     title: taskTitle,
+    priority: priorityInput.value,
     completed: false,
     createdAt: new Date().toISOString(),
   };
@@ -41,6 +43,7 @@ taskForm.addEventListener("submit", function (event) {
   updateStats();
 
   taskInput.value = "";
+  priorityInput.value = "medium";
 });
 
 function renderTasks() {
@@ -81,6 +84,19 @@ function renderTask(task) {
     span.classList.add("completed");
   }
 
+  const priorityBadge = document.createElement("strong");
+
+  if (task.priority === "high") {
+    priorityBadge.textContent = "Alta";
+    priorityBadge.className = "priority high";
+  } else if (task.priority === "medium") {
+    priorityBadge.textContent = "Media";
+    priorityBadge.className = "priority medium";
+  } else {
+    priorityBadge.textContent = "Baja";
+    priorityBadge.className = "priority low";
+  }
+
   const actions = document.createElement("div");
   actions.className = "task-buttons";
 
@@ -91,6 +107,7 @@ function renderTask(task) {
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "❌";
   deleteBtn.type = "button";
+  deleteBtn.setAttribute("aria-label", "Eliminar tarea");
 
   span.addEventListener("click", function () {
     task.completed = !task.completed;
@@ -132,6 +149,7 @@ function renderTask(task) {
   actions.appendChild(deleteBtn);
 
   li.appendChild(span);
+  li.appendChild(priorityBadge);
   li.appendChild(actions);
 
   taskList.appendChild(li);
@@ -160,6 +178,13 @@ function loadTasks() {
   if (savedTasks) {
     tasks = JSON.parse(savedTasks);
   }
+
+  tasks = tasks.map(function (task) {
+    return {
+      ...task,
+      priority: task.priority || "medium",
+    };
+  });
 
   renderTasks();
   updateStats();
