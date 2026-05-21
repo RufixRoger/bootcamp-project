@@ -53,3 +53,4 @@ La estructura creada fue:
 
 ```text
 .cursor/mcp.json
+
