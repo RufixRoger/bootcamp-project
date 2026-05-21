@@ -142,9 +142,25 @@ Sin embargo, fue importante comprender el código generado y no depender complet
 
 ---
 
-# 🔹 Después haz commit
 
-```bash id="rvg9t3"
-git add .
-git commit -m "docs: add AI experiments documentation"
-git push origin main
+
+# Ampliación de funcionalidades con IA
+
+Durante esta fase se utilizaron herramientas de inteligencia artificial para proponer e implementar mejoras en TaskFlow.
+
+## Funcionalidades añadidas
+
+- Sistema de prioridades (Alta, Media y Baja)
+- Búsqueda de tareas por texto
+- Filtros de tareas (Todas, Pendientes y Completadas)
+- Edición de tareas existentes
+- Marcado masivo de tareas completadas
+- Eliminación masiva de tareas completadas
+
+## Uso de IA
+
+La IA ayudó a generar ideas, proponer implementaciones y revisar el código antes de integrarlo en el proyecto.
+
+## Resultado
+
+Las nuevas funcionalidades mejoraron la usabilidad de la aplicación y permitieron una gestión más eficiente de las tareas.
